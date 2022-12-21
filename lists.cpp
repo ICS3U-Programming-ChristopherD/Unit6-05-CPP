@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <list>
-
+#include <string>
 
 float averageMark(std::list<float> marks) {
     // Initializes sum of marks to 0
@@ -24,6 +24,7 @@ float averageMark(std::list<float> marks) {
 int main() {
     // Declaring list and mark variable
 
+    std::string userMarkStr;
     std::list<float> userMarks;
     float userMark;
 
@@ -32,13 +33,13 @@ int main() {
 
     do {
         std::cout << "Enter a mark: ";
+        std::cin >> userMarkStr;
 
-        // Gets a mark from the user, does error checking as well
+        // Checks if the user entered a numeric value
         try {
-            std::cin >> userMark;
+            userMark = std::stof(userMarkStr);
         } catch (...) {
             std::cout << "You must enter a numeric value.\n";
-            continue;
         }
 
         // Adds the mark to the back of the list
